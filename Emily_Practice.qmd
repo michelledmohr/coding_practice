@@ -29,3 +29,38 @@ library(librarian)
 treedata_YPE0 <- read_csv(here('data/YPE_Treedata_Plot_0.csv'))
 
 ```
+
+## Practice looking at the data and manipulate the data frame
+
+```{r}
+# you should now see a new data frame in your Environment tab on the right side of your Rstudio window that is called treedata_YPE0 
+## you can click on the sheet icon all the way to the right to view the data 
+```
+
+### Task 1 
+
+Make a new data frame with only the columns "species" and "DBH_cm"
+
+```{r}
+treedata_YPE0 %>% 
+  group_by(species, DBH_cm)
+
+YPE0_treespecies <- treedata_YPE0[, c("species", "treeNum")]
+
+## Practice 
+
+
+YPE0_treespecies <- treedata_YPE0[, c("species")] %>%
+ group_by(species) %>% 
+  summarize(tree_count = n())
+ 
+# Create a bar plot for the number of trees per species
+
+ggplot(data=YPE0_treespecies,
+       aes(x = species ,
+           y = tree_count)) +
+  geom_col() +
+  labs(x = "Species", y = "Tree Count") +
+  ggtitle("YPE 0 Associated Tree Species") + 
+  theme_minimal() 
+```
