@@ -1,0 +1,31 @@
+---
+title: "Emily Practice"
+author: "M. D. Mohr"
+format: html
+editor: visual
+---
+
+# Coding Practice
+
+First you'll want to install necessary packages using the install.packages("") function
+
+Then you'll want to load them using the library() function
+
+Load in your data using read_csv('') function
+
+```{r}
+
+# Step 1) Install Packages
+install.packages("tidyverse")
+install.packages("here")
+install.packages("librarian")
+
+# Step 2) Load Packages
+library(tidyverse)
+library(here)
+library(librarian)
+
+# Step 3) Load in the data using read_csv 
+treedata_YPE0 <- read_csv(here('data/YPE_Treedata_Plot_0.csv'))
+
+```
